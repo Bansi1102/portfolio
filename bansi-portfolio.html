@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bansi Bhadja | AI/ML engineer</title>
+<meta name="description" content="AI/ML engineer with 2+ years building healthcare AI: RAG, fine-tuned Llama models, prediction services and production deployment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F8F8; --surface:#FFFFFF; --ink:#10242B; --muted:#4D646B; --line:#D5E0E2;
+  --accent:#0A7F83; --accent-ink:#FFFFFF; --rule:#B8730D; --soft:#E3F1F1;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A171B; --surface:#112329; --ink:#E7F1F1; --muted:#98B0B5; --line:#223A41;
+    --accent:#3CC4C6; --accent-ink:#06191C; --rule:#E2A94A; --soft:#13303A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A171B; --surface:#112329; --ink:#E7F1F1; --muted:#98B0B5; --line:#223A41;
+  --accent:#3CC4C6; --accent-ink:#06191C; --rule:#E2A94A; --soft:#13303A;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--sans)}
+a{color:var(--accent)}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+header.hero{padding:72px 0 40px}
+.hero h1{font:600 clamp(40px,7vw,76px)/1.02 var(--serif);letter-spacing:-.02em;margin:0 0 20px;max-width:15ch}
+.hero .role{font:500 clamp(20px,2.6vw,26px)/1.35 var(--serif);color:var(--ink);max-width:34ch;margin:0 0 16px}
+.hero p.sub{color:var(--muted);max-width:60ch;margin:0 0 28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;min-height:44px;padding:0 20px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent);background:transparent}
+.btn:hover{filter:brightness(1.08)}
+
+/* The memorable element: the pipeline */
+.flowbox{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px;margin:8px 0 8px}
+.flowbox h2{font:600 22px/1.3 var(--serif);margin:0 0 4px}
+.flowbox p.note{margin:0 0 22px;color:var(--muted);font-size:15px}
+ol.flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);gap:0;counter-reset:s}
+ol.flow li{position:relative;padding:0 14px 0 0;opacity:.35;animation:lit .5s ease forwards}
+ol.flow li:nth-child(1){animation-delay:.2s}ol.flow li:nth-child(2){animation-delay:.6s}
+ol.flow li:nth-child(3){animation-delay:1s}ol.flow li:nth-child(4){animation-delay:1.4s}
+ol.flow li:nth-child(5){animation-delay:1.8s}ol.flow li:nth-child(6){animation-delay:2.2s}
+@keyframes lit{to{opacity:1}}
+ol.flow li::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--soft);color:var(--accent);font-weight:600;font-size:14px;margin-bottom:10px;position:relative;z-index:1}
+ol.flow li::after{content:"";position:absolute;top:15px;left:34px;right:6px;height:2px;background:var(--line)}
+ol.flow li:last-child::after{display:none}
+ol.flow li.rule::before{background:var(--rule);color:var(--surface)}
+ol.flow b{display:block;font-weight:600;line-height:1.3;margin-bottom:2px}
+ol.flow span{display:block;font-size:14px;line-height:1.45;color:var(--muted)}
+@media (max-width:820px){
+  ol.flow{grid-template-columns:1fr;gap:18px}
+  ol.flow li{padding:0 0 0 46px;min-height:34px}
+  ol.flow li::before{position:absolute;left:0;top:0;margin:0}
+  ol.flow li::after{top:30px;left:14px;width:2px;height:calc(100% - 10px + 18px);right:auto}
+}
+@media (prefers-reduced-motion:reduce){ol.flow li{animation:none;opacity:1}}
+
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:36px 0 8px}
+.fact{border-left:3px solid var(--accent);padding:2px 0 2px 14px}
+.fact b{display:block;font:600 28px/1.1 var(--serif)}
+.fact span{font-size:14px;color:var(--muted);line-height:1.4;display:block;margin-top:4px}
+@media (max-width:820px){.facts{grid-template-columns:1fr 1fr}}
+
+section{padding:48px 0 8px}
+section>h2{font:600 clamp(26px,3.4vw,34px)/1.15 var(--serif);margin:0 0 6px;letter-spacing:-.01em}
+section>p.lead{color:var(--muted);margin:0 0 24px;max-width:62ch}
+
+.proj{display:grid;grid-template-columns:260px 1fr;gap:8px 32px;padding:24px 0;border-top:1px solid var(--line)}
+.proj:first-of-type{border-top:2px solid var(--ink)}
+.proj h3{font:600 20px/1.3 var(--serif);margin:0}
+.proj .stack{font-size:14px;color:var(--muted);margin:6px 0 0}
+.proj p{margin:0 0 8px}
+.proj p.out{color:var(--ink);font-weight:500}
+@media (max-width:820px){.proj{grid-template-columns:1fr}}
+
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 32px}
+.skills h3{font:600 17px/1.3 var(--serif);margin:0 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{background:var(--soft);color:var(--ink);padding:5px 12px;border-radius:999px;font-size:14px}
+@media (max-width:820px){.skills{grid-template-columns:1fr}}
+
+.job{padding:20px 0;border-top:1px solid var(--line)}
+.job h3{font:600 20px/1.3 var(--serif);margin:0}
+.job .meta{color:var(--muted);font-size:15px;margin:2px 0 8px}
+.job ul{margin:0;padding-left:20px}
+.job li{margin-bottom:6px}
+
+.contact{margin:56px 0 0;padding:40px 0 64px;border-top:2px solid var(--ink)}
+.contact h2{font:600 clamp(28px,4vw,40px)/1.15 var(--serif);margin:0 0 10px;max-width:22ch}
+.contact p{color:var(--muted);margin:0 0 22px;max-width:56ch}
+footer{color:var(--muted);font-size:14px;padding:0 0 40px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <h1>Bansi Bhadja</h1>
+  <p class="role">AI/ML engineer building healthcare AI that stays grounded, private and checkable.</p>
+  <p class="sub">I have 2+ years of shipping RAG systems, fine-tuned Llama models and prediction services for medical billing, from model to live API. Based in Vadodara, open to roles in Pune, Bangalore and Gandhinagar.</p>
+  <div class="actions">
+    <a class="btn primary" href="mailto:bansibhadja62@gmail.com">Email me</a>
+    <a class="btn ghost" href="https://linkedin.com/in/BansiBhadja" target="_blank" rel="noopener">View LinkedIn</a>
+  </div>
+</header>
+
+<div class="flowbox">
+  <h2>How a clinical note becomes billing codes</h2>
+  <p class="note">A simplified view of how the pieces I built fit together.</p>
+  <ol class="flow">
+    <li><b>SOAP note in</b><span>Raw clinical text arrives at the API</span></li>
+    <li><b>PHI removed</b><span>Presidio and spaCy redact patient data before any LLM call</span></li>
+    <li><b>Similar cases found</b><span>FAISS search; reuse a cached answer only above a similarity threshold</span></li>
+    <li><b>Codes extracted</b><span>Fine-tuned Llama 3.1, with Azure OpenAI as fallback</span></li>
+    <li class="rule"><b>Rules decide</b><span>NCCI and tenant rules take priority over model output</span></li>
+    <li><b>Codes out</b><span>Feedback is stored to improve later results</span></li>
+  </ol>
+</div>
+
+<div class="facts">
+  <div class="fact"><b>2+ years</b><span>building healthcare AI products in Python</span></div>
+  <div class="fact"><b>2 models</b><span>Llama 3.1 fine-tuned with LoRA for code extraction and NCCI validation</span></div>
+  <div class="fact"><b>~97%</b><span>validation accuracy on the NCCI validation model</span></div>
+  <div class="fact"><b>0.96 to 0.98</b><span>R&sup2; on revenue prediction models, depending on the dataset</span></div>
+</div>
+
+<section id="projects">
+  <h2>Selected work</h2>
+  <p class="lead">Built at Panva Technology Solutions for a revenue cycle management platform.</p>
+
+  <article class="proj">
+    <div><h3>Payer-policy document Q&amp;A</h3><p class="stack">tiktoken, SentenceTransformers, FAISS, Llama 3.1 8B (Ollama)</p></div>
+    <div>
+      <p>A RAG pipeline that ingests PDFs, chunks them by tokens, and answers policy questions from the source text with citations.</p>
+      <p class="out">Answers stay tied to the documents instead of free-form model output.</p>
+    </div>
+  </article>
+
+  <article class="proj">
+    <div><h3>CPT/ICD extraction with per-user RAG</h3><p class="stack">FAISS, JSONL feedback store, Azure OpenAI</p></div>
+    <div>
+      <p>Replaced a TF-IDF and nearest-neighbour retriever with a per-user RAG design. Feedback is stored, and earlier responses are reused when similarity is above a set threshold.</p>
+      <p class="out">Fewer redundant LLM calls, with Azure OpenAI as a fallback.</p>
+    </div>
+  </article>
+
+  <article class="proj">
+    <div><h3>Fine-tuned Llama 3.1 models</h3><p class="stack">LoRA, ~50k JSONL training examples</p></div>
+    <div>
+      <p>One model extracts ICD/CPT codes from SOAP notes. Another validates billed CPT codes against NCCI guidelines. Early runs underfit, so I expanded the dataset.</p>
+      <p class="out">~97% validation accuracy on NCCI validation, backed by a rule engine that overrides the model.</p>
+    </div>
+  </article>
+
+  <article class="proj">
+    <div><h3>Revenue cycle prediction models</h3><p class="stack">XGBoost, scikit-learn, Flask, SQLAlchemy, SQL Server</p></div>
+    <div>
+      <p>Models for payment percentage, payment timing and patient aging risk, saved with joblib and served from a Flask service. I diagnosed and fixed both overfitting and underfitting across models.</p>
+      <p class="out">Automated predictions replaced manual due-date and collections-risk estimates.</p>
+    </div>
+  </article>
+
+  <article class="proj">
+    <div><h3>Secure production deployment</h3><p class="stack">Gunicorn, systemd, NGINX, JWT, Presidio, spaCy</p></div>
+    <div>
+      <p>Flask APIs run on an Azure Linux VM behind an NGINX reverse proxy, using Unix sockets and JWT authentication. Patient data is redacted before any text reaches an LLM.</p>
+    </div>
+  </article>
+
+  <article class="proj">
+    <div><h3>Daily model monitoring</h3><p class="stack">cron, scikit-learn metrics</p></div>
+    <div>
+      <p>A scheduled pipeline retrains the revenue models and tracks R&sup2;, MAE and training record count.</p>
+      <p class="out">Model reliability can be checked without manual runs.</p>
+    </div>
+  </article>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="skills">
+    <div><h3>Generative AI and NLP</h3><ul class="chips"><li>RAG</li><li>LangChain</li><li>Azure OpenAI</li><li>Llama 3.1</li><li>Ollama</li><li>Hugging Face</li><li>FAISS</li><li>Sentence-Transformers</li><li>Prompt engineering</li></ul></div>
+    <div><h3>Machine learning</h3><ul class="chips"><li>XGBoost</li><li>scikit-learn</li><li>PyTorch</li><li>TensorFlow</li><li>Feature engineering</li><li>Model evaluation</li></ul></div>
+    <div><h3>Backend and deployment</h3><ul class="chips"><li>Python</li><li>Flask</li><li>FastAPI</li><li>REST APIs</li><li>Gunicorn</li><li>NGINX</li><li>systemd</li><li>JWT</li><li>Git</li></ul></div>
+    <div><h3>Data, cloud and privacy</h3><ul class="chips"><li>SQL</li><li>Pandas</li><li>NumPy</li><li>SQLAlchemy</li><li>Azure VM</li><li>Presidio</li><li>spaCy</li><li>Elasticsearch</li></ul></div>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="job">
+    <h3>Software Engineer, AI/ML</h3>
+    <p class="meta">Panva Technology Solutions, Vadodara. June 2024 to present</p>
+    <ul>
+      <li>Built the prediction, RAG, fine-tuning and monitoring work shown above.</li>
+      <li>Integrated Azure OpenAI to suggest next steps for rejected claims, replacing manual research by the claims team.</li>
+    </ul>
+  </div>
+  <div class="job">
+    <h3>Software Engineering Intern</h3>
+    <p class="meta">Larsen &amp; Toubro, Vadodara. 3 months</p>
+    <ul><li>Built internal tools in ASP.NET, C# and JavaScript, including "Insightly", a data-insights tool using Microsoft Azure AI.</li></ul>
+  </div>
+  <div class="job">
+    <h3>Software Engineering Intern</h3>
+    <p class="meta">Sparsh Technology, Vadodara. 1 month</p>
+    <ul><li>Completed a C# mini-project applying object-oriented design.</li></ul>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education and certificates</h2>
+  <div class="job">
+    <h3>B.Tech, Computer Science and Engineering</h3>
+    <p class="meta">Parul University, Vadodara. 2021 to 2024</p>
+  </div>
+  <div class="job">
+    <h3>Diploma, Computer Science and Engineering</h3>
+    <p class="meta">The Maharaja Sayajirao University, Vadodara. 2018 to 2021</p>
+    <ul><li>Introduction to Internet of Things, NPTEL (IIT Kharagpur)</li><li>Cyber Security, Google (Coursera)</li></ul>
+  </div>
+</section>
+
+<div class="contact">
+  <h2>Hiring for an AI or ML role? Let's talk.</h2>
+  <p>I'm happy to walk through any project above, including the design choices and trade-offs.</p>
+  <div class="actions">
+    <a class="btn primary" href="mailto:bansibhadja62@gmail.com">bansibhadja62@gmail.com</a>
+    <a class="btn ghost" href="https://linkedin.com/in/BansiBhadja" target="_blank" rel="noopener">linkedin.com/in/BansiBhadja</a>
+  </div>
+</div>
+<footer>Bansi Bhadja, Vadodara, India</footer>
+
+</div>
+</body>
+</html>
