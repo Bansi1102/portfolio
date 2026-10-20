@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bansi Bhadja | AI/ML engineer</title>
+<meta name="description" content="3D portfolio of Bansi Bhadja, AI/ML engineer building healthcare AI: RAG, fine-tuned Llama models, ML pipelines and secure deployment.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF5F5; --ink:#0F2228; --muted:#46606A; --glass:rgba(255,255,255,.74); --line:rgba(15,34,40,.16);
+  --accent:#0A7F83; --accent-ink:#FFFFFF; --soft:rgba(10,127,131,.12);
+  --c0:#0A7F83; --c1:#2B5FD9; --c2:#B8730D; --c3:#8A3FB5; --core:#0F2228;
+  --display:"Sora",system-ui,"Segoe UI",Arial,sans-serif;
+  --sans:"Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#06131A; --ink:#E6F2F2; --muted:#9DB6BB; --glass:rgba(9,28,36,.66); --line:rgba(230,242,242,.16);
+    --accent:#43D2D4; --accent-ink:#04171B; --soft:rgba(67,210,212,.14);
+    --c0:#43D2D4; --c1:#6E9BFF; --c2:#F0B654; --c3:#C58BF0; --core:#9FE6E8;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#06131A; --ink:#E6F2F2; --muted:#9DB6BB; --glass:rgba(9,28,36,.66); --line:rgba(230,242,242,.16);
+  --accent:#43D2D4; --accent-ink:#04171B; --soft:rgba(67,210,212,.14);
+  --c0:#43D2D4; --c1:#6E9BFF; --c2:#F0B654; --c3:#C58BF0; --core:#9FE6E8;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{height:100%;scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px);-webkit-text-size-adjust:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--sans)}
+body::before{content:"";position:fixed;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,var(--bg) 0%,transparent 62%);opacity:.55}
+a{color:var(--accent)}
+a:focus-visible,.btn:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:8px}
+#scene{position:fixed;inset:0;width:100%;height:100%;z-index:0;display:block}
+main{position:relative;z-index:2}
+.wrap{padding:0 clamp(18px,5vw,72px)}
+.col{max-width:620px}
+.panel{padding:14vh 0 2vh}
+.hero{min-height:100svh;display:flex;align-items:center;padding:8vh 0}
+h1{font:700 clamp(44px,8vw,88px)/1 var(--display);letter-spacing:-.03em;margin:0 0 20px}
+.role{font:600 clamp(20px,2.6vw,27px)/1.35 var(--display);margin:0 0 16px}
+.sub{color:var(--muted);margin:0 0 28px;max-width:54ch}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;min-height:46px;padding:0 22px;border-radius:999px;font-weight:600;text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent);background:var(--glass)}
+.btn:hover{filter:brightness(1.1)}
+.hint{margin:36px 0 0;color:var(--muted);font-size:14px}
+h2{font:700 clamp(26px,3.6vw,38px)/1.15 var(--display);letter-spacing:-.02em;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 24px}
+.card{background:var(--glass);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:20px;padding:22px 24px;margin:0 0 18px;transition:transform .18s ease,box-shadow .18s ease}
+.card:hover{box-shadow:0 14px 40px rgba(0,0,0,.18)}
+.card h3{font:600 20px/1.3 var(--display);margin:0 0 4px}
+.stack{font-size:14px;color:var(--muted);margin:0 0 10px}
+.card p{margin:0 0 8px}
+.card p.out{font-weight:600}
+.tag{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:8px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:18px 22px}
+.fact b{display:block;font:700 28px/1.1 var(--display)}
+.fact span{font-size:14px;color:var(--muted);display:block;margin-top:4px;line-height:1.4}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.chips li{background:var(--soft);padding:5px 12px;border-radius:999px;font-size:14px}
+.card h3.sk{margin-bottom:10px}
+.job{margin:0 0 14px}
+.job b{display:block}
+.job span{color:var(--muted);font-size:15px}
+.contact h2{max-width:20ch}
+footer{padding:40px 0 90px;color:var(--muted);font-size:14px}
+#label{position:fixed;z-index:3;right:clamp(14px,3vw,36px);bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--glass);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;font-weight:600}
+#label small{color:var(--muted);font-weight:500;margin-right:6px}
+.js .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.js .reveal.in{opacity:1;transform:none}
+@media (max-width:760px){.facts{grid-template-columns:1fr 1fr}.card{padding:18px}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .card{transition:none}
+}
+</style>
+</head>
+<body>
+<canvas id="scene" aria-hidden="true"></canvas>
+<div id="label" aria-live="polite"><small>Exploring</small><span id="lt">Overview</span></div>
+
+<main class="wrap">
+
+<section class="hero" data-c="-1">
+  <div class="col">
+    <h1>Bansi Bhadja</h1>
+    <p class="role">AI/ML engineer building healthcare AI that stays grounded, private and checkable.</p>
+    <p class="sub">I have 2+ years of shipping RAG, Text-to-SQL, fine-tuned Llama models, prediction services and a claim-validation engine for medical billing, from model to live API. Based in Vadodara, open to roles in Pune, Bangalore and Gandhinagar.</p>
+    <div class="actions">
+      <a class="btn primary" href="mailto:bansibhadja62@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/bansi-bhadja-067330297/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/Bansi1102" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <p class="hint">Scroll to explore. The points behind this page are my work, grouped like embeddings in vector space.</p>
+  </div>
+</section>
+
+<section class="panel" data-c="-1">
+  <div class="col">
+    <div class="card reveal">
+      <div class="facts">
+        <div class="fact"><b>2+ years</b><span>building healthcare AI products in Python</span></div>
+        <div class="fact"><b>2 models</b><span>Llama 3.1 fine-tuned with LoRA for code extraction and NCCI validation</span></div>
+        <div class="fact"><b>~97%</b><span>validation accuracy on the NCCI validation model</span></div>
+        <div class="fact"><b>276 s to 4.2 s</b><span>analytics API latency after removing per-row ML inference</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="panel" id="work">
+  <div class="col">
+    <h2>Selected work</h2>
+    <p class="lead">Built at Panva Technology Solutions for a revenue cycle management platform.</p>
+
+    <article class="card reveal" data-c="0">
+      <h3><span class="tag" style="background:var(--c0)"></span>Payer-policy document RAG</h3>
+      <p class="stack">SentenceTransformers, FAISS, Llama 3.1 8B (Ollama)</p>
+      <p>PDF ingestion with 512-token chunks and 64-token overlap, answered locally or through Azure OpenAI, with a normalized question cache.</p>
+      <p class="out">Answers stay tied to the documents, with citations.</p>
+    </article>
+
+    <article class="card reveal" data-c="0">
+      <h3><span class="tag" style="background:var(--c0)"></span>CPT/ICD extraction and fine-tuned Llama</h3>
+      <p class="stack">LoRA, ~50k JSONL examples, FAISS, Azure OpenAI</p>
+      <p>Replaced TF-IDF retrieval with per-tenant RAG and a similarity-threshold cache. Two LoRA models: one extracts codes from SOAP notes, one validates billed codes against NCCI. Tenant rules override model output.</p>
+      <p class="out">~97% validation accuracy on NCCI validation.</p>
+    </article>
+
+    <article class="card reveal" data-c="0">
+      <h3><span class="tag" style="background:var(--c0)"></span>Natural-language analytics</h3>
+      <p class="stack">Vanna AI, Azure OpenAI, FAISS, DuckDB, SQLGlot</p>
+      <p>An 8-stage Text-to-SQL pipeline: intent and entity resolution, vector-grounded SQL, AST validation (read-only, table allowlist, 5,000-row cap), then DuckDB execution and streaming answers. Each tenant has its own database and vector index.</p>
+      <p class="out">Generated SQL is validated before it touches data.</p>
+    </article>
+
+    <article class="card reveal" data-c="1">
+      <h3><span class="tag" style="background:var(--c1)"></span>Claims intelligence platform</h3>
+      <p class="stack">FastAPI, XGBoost, FAISS, Azure OpenAI, SHAP</p>
+      <p>Clinical coding RAG, payer behavior models, NCCI checks and AI claim review in one platform. Time-based validation avoids leakage, SHAP explains denial risk, and FP-Growth mining across 9 pipelines finds denial and underpayment patterns.</p>
+      <p class="out">Pattern analytics API cut from about 276 s to 4.2 s.</p>
+    </article>
+
+    <article class="card reveal" data-c="1">
+      <h3><span class="tag" style="background:var(--c1)"></span>Prediction models and MLOps</h3>
+      <p class="stack">XGBoost, scikit-learn, Evidently, Prometheus</p>
+      <p>Tenant-isolated models for payment percentage, payment timing, provider cash flow and patient aging risk, retrained daily with checkpoint resume, drift alerts, logged R&sup2; and MAE, and one-step rollback.</p>
+      <p class="out">R&sup2; of about 0.96 to 0.98 depending on the dataset.</p>
+    </article>
+
+    <article class="card reveal" data-c="2">
+      <h3><span class="tag" style="background:var(--c2)"></span>Claim validation rules engine</h3>
+      <p class="stack">FastAPI, SQLAlchemy, Pandas, Docker</p>
+      <p>A strategy-pattern engine with 16+ rule types (NCCI PTP, MUE, add-on codes, modifiers, LCD/NCD, place of service), strict PASS/FAIL results and audit trails.</p>
+      <p class="out">Under 25 ms per 100-line batch.</p>
+    </article>
+
+    <article class="card reveal" data-c="2">
+      <h3><span class="tag" style="background:var(--c2)"></span>EOB to EDI 835 pipeline</h3>
+      <p class="stack">PaddleOCR, Azure Document Intelligence, Qwen2.5-VL</p>
+      <p>Scanned remittances become X12 835 files through OCR, payer-specific parsers and balance checks, with a human-review queue for low-confidence results.</p>
+    </article>
+
+    <article class="card reveal" data-c="3">
+      <h3><span class="tag" style="background:var(--c3)"></span>Secure production deployment</h3>
+      <p class="stack">Gunicorn, systemd, NGINX, JWT, Docker, Presidio, spaCy</p>
+      <p>APIs run on Azure Linux VMs and in containers. Legacy Flask endpoints moved to FastAPI behind a compatibility proxy. Patient data is redacted before any text reaches an LLM.</p>
+      <p class="out">Zero patient identifiers in model inputs or artifacts.</p>
+    </article>
+  </div>
+</section>
+
+<section class="panel" id="skills">
+  <div class="col">
+    <h2>Skills</h2>
+    <p class="lead">The scene moves to the matching cluster as you scroll.</p>
+    <div class="card reveal" data-c="0"><h3 class="sk">Generative AI and NLP</h3><ul class="chips"><li>RAG</li><li>LoRA fine-tuning</li><li>LangChain</li><li>Azure OpenAI</li><li>Llama 3.1</li><li>Ollama</li><li>Hugging Face</li><li>FAISS</li><li>Vanna AI</li><li>Text-to-SQL</li><li>Medical NER</li></ul></div>
+    <div class="card reveal" data-c="1"><h3 class="sk">Machine learning and MLOps</h3><ul class="chips"><li>XGBoost</li><li>scikit-learn</li><li>SHAP</li><li>Drift monitoring</li><li>FP-Growth</li><li>PyTorch</li><li>TensorFlow</li></ul></div>
+    <div class="card reveal" data-c="2"><h3 class="sk">Backend, deployment and AI-assisted development</h3><ul class="chips"><li>Python</li><li>FastAPI</li><li>Flask</li><li>Pydantic</li><li>Docker</li><li>Gunicorn</li><li>NGINX</li><li>systemd</li><li>Prometheus</li><li>Git</li><li>Cursor</li><li>Warp</li><li>Google Antigravity</li></ul></div>
+    <div class="card reveal" data-c="3"><h3 class="sk">Data, cloud and privacy</h3><ul class="chips"><li>SQL</li><li>Pandas</li><li>SQLAlchemy</li><li>DuckDB</li><li>SQLGlot</li><li>Azure VM</li><li>JWT</li><li>Presidio</li><li>spaCy</li><li>PaddleOCR</li></ul></div>
+  </div>
+</section>
+
+<section class="panel" data-c="-1">
+  <div class="col">
+    <h2>Experience and education</h2>
+    <div class="card reveal">
+      <div class="job"><b>Software Engineer, AI/ML</b><span>Panva Technology Solutions, Vadodara. June 2024 to present</span></div>
+      <div class="job"><b>Software Engineering Intern</b><span>Larsen &amp; Toubro, 3 months. ASP.NET, C# and an Azure AI data-insights tool</span></div>
+      <div class="job"><b>Software Engineering Intern</b><span>Sparsh Technology, 1 month. C# mini-project</span></div>
+      <div class="job"><b>B.Tech, Computer Science and Engineering</b><span>Parul University, 2021 to 2024. CGPA 8.16</span></div>
+      <div class="job" style="margin:0"><b>Diploma, Computer Science and Engineering</b><span>The Maharaja Sayajirao University, 2018 to 2021. CGPA 7.70</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="panel contact" data-c="-1">
+  <div class="col">
+    <div class="card reveal">
+      <h2>Hiring for an AI or ML role? Let’s talk.</h2>
+      <p class="lead">I’m happy to walk through any project above, including the design choices and trade-offs.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:bansibhadja62@gmail.com">bansibhadja62@gmail.com</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/bansi-bhadja-067330297/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/Bansi1102" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>Bansi Bhadja, Vadodara, India</footer>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  document.documentElement.classList.add('js');
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var names = ['LLMs & RAG','ML & MLOps','Backend & deployment','Privacy & compliance'];
+  var lt = document.getElementById('lt');
+  var active = -1;
+  function setActive(i){ active = i; lt.textContent = i < 0 ? 'Overview' : names[i]; }
+
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting) setActive(+e.target.getAttribute('data-c')); });
+  }, {rootMargin:'-45% 0px -45% 0px'});
+  document.querySelectorAll('[data-c]').forEach(function(el){ io.observe(el); });
+
+  var rv = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); rv.unobserve(e.target); } });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(function(el){ rv.observe(el); });
+
+  if(!reduce && matchMedia('(hover: hover)').matches){
+    document.querySelectorAll('.card').forEach(function(c){
+      c.addEventListener('mousemove', function(e){
+        var r = c.getBoundingClientRect();
+        var px = (e.clientX - r.left)/r.width - .5, py = (e.clientY - r.top)/r.height - .5;
+        c.style.transform = 'perspective(900px) rotateX('+(-py*5)+'deg) rotateY('+(px*7)+'deg) translateY(-2px)';
+      });
+      c.addEventListener('mouseleave', function(){ c.style.transform = ''; });
+    });
+  }
+
+  var canvas = document.getElementById('scene');
+  if(!window.THREE){ canvas.style.display = 'none'; return; }
+  var renderer;
+  try { renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true}); }
+  catch(err){ canvas.style.display = 'none'; return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(55, 1, .1, 100);
+  camera.position.set(0, 0, 16);
+  var group = new THREE.Group();
+  scene.add(group);
+
+  function g(){ return Math.random() + Math.random() + Math.random() - 1.5; }
+  var cl = [];
+  for(var i = 0; i < 4; i++){
+    var a = i * Math.PI / 2, cx = Math.sin(a) * 5.2, cz = Math.cos(a) * 5.2, cy = [1, -.8, .8, -1][i];
+    var n = 240, pos = new Float32Array(n * 3), j, k;
+    for(j = 0; j < n; j++){
+      pos[j*3] = cx + g() * 1.8; pos[j*3+1] = cy + g() * 1.3; pos[j*3+2] = cz + g() * 1.8;
+    }
+    var geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+    var pm = new THREE.PointsMaterial({size:.09, transparent:true, opacity:.55, sizeAttenuation:true, depthWrite:false});
+    group.add(new THREE.Points(geo, pm));
+
+    var segs = [];
+    for(j = 0; j < n; j++){
+      var b1 = -1, b2 = -1, d1 = 1e9, d2 = 1e9;
+      for(k = 0; k < n; k++){
+        if(k === j) continue;
+        var dx = pos[j*3]-pos[k*3], dy = pos[j*3+1]-pos[k*3+1], dz = pos[j*3+2]-pos[k*3+2];
+        var d = dx*dx + dy*dy + dz*dz;
+        if(d < d1){ d2 = d1; b2 = b1; d1 = d; b1 = k; } else if(d < d2){ d2 = d; b2 = k; }
+      }
+      [b1, b2].forEach(function(t){ segs.push(pos[j*3], pos[j*3+1], pos[j*3+2], pos[t*3], pos[t*3+1], pos[t*3+2]); });
+    }
+    var lg = new THREE.BufferGeometry();
+    lg.setAttribute('position', new THREE.BufferAttribute(new Float32Array(segs), 3));
+    var lm = new THREE.LineBasicMaterial({transparent:true, opacity:.16, depthWrite:false});
+    group.add(new THREE.LineSegments(lg, lm));
+    cl.push({pm:pm, lm:lm});
+  }
+
+  var core = new THREE.Mesh(new THREE.IcosahedronGeometry(1.2, 1), new THREE.MeshBasicMaterial({wireframe:true, transparent:true, opacity:.4}));
+  group.add(core);
+
+  var dp = new Float32Array(450 * 3);
+  for(var q = 0; q < 450; q++){
+    var u = Math.random() * 2 - 1, t = Math.random() * 6.2832, r = 13 + Math.random() * 14, s = Math.sqrt(1 - u*u);
+    dp[q*3] = r * s * Math.cos(t); dp[q*3+1] = r * u; dp[q*3+2] = r * s * Math.sin(t);
+  }
+  var dg = new THREE.BufferGeometry();
+  dg.setAttribute('position', new THREE.BufferAttribute(dp, 3));
+  var dm = new THREE.PointsMaterial({size:.05, transparent:true, opacity:.4, depthWrite:false});
+  scene.add(new THREE.Points(dg, dm));
+
+  function applyColors(){
+    var cs = getComputedStyle(document.documentElement);
+    for(var i = 0; i < 4; i++){
+      var c = cs.getPropertyValue('--c' + i).trim();
+      cl[i].pm.color.set(c); cl[i].lm.color.set(c);
+    }
+    var core_c = cs.getPropertyValue('--core').trim();
+    core.material.color.set(core_c); dm.color.set(core_c);
+  }
+  applyColors();
+  var mq = matchMedia('(prefers-color-scheme: dark)');
+  if(mq.addEventListener) mq.addEventListener('change', applyColors);
+
+  function resize(){
+    renderer.setSize(window.innerWidth, window.innerHeight, false);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  var mx = 0, my = 0;
+  if(!reduce) window.addEventListener('pointermove', function(e){
+    mx = e.clientX / window.innerWidth - .5; my = e.clientY / window.innerHeight - .5;
+  });
+  var kk = reduce ? 1 : .06;
+
+  function frame(){
+    var wide = window.innerWidth / window.innerHeight > 1.1;
+    if(active < 0){
+      if(!reduce) group.rotation.y += .0018;
+    } else {
+      var tgt = -active * Math.PI / 2;
+      group.rotation.y += Math.atan2(Math.sin(tgt - group.rotation.y), Math.cos(tgt - group.rotation.y)) * kk;
+    }
+    var tz = (active < 0 ? 16 : 11.5) * (wide ? 1 : 1.35);
+    camera.position.z += (tz - camera.position.z) * kk;
+    camera.position.x += (mx * 1.6 - camera.position.x) * .05;
+    camera.position.y += (-my * 1.1 - camera.position.y) * .05;
+    group.position.x += ((wide ? 2.8 : 0) - group.position.x) * kk;
+    camera.lookAt(0, 0, 0);
+    if(!reduce){ core.rotation.x += .003; core.rotation.y += .004; }
+    var cs = active < 0 ? 1.3 : .8;
+    core.scale.x += (cs - core.scale.x) * kk; core.scale.y = core.scale.z = core.scale.x;
+    for(var i = 0; i < 4; i++){
+      var on = i === active, ov = active < 0;
+      cl[i].pm.opacity += ((ov ? .55 : on ? .95 : .16) - cl[i].pm.opacity) * kk;
+      cl[i].pm.size += ((ov ? .09 : on ? .15 : .07) - cl[i].pm.size) * kk;
+      cl[i].lm.opacity += ((ov ? .14 : on ? .5 : .04) - cl[i].lm.opacity) * kk;
+    }
+    renderer.render(scene, camera);
+    requestAnimationFrame(frame);
+  }
+  frame();
+})();
+</script>
+</body>
+</html>
